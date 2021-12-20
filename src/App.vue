@@ -11,6 +11,8 @@
       <div class="col-md-9">
         <router-view></router-view>
       </div>
+       
+
       <app-footer></app-footer>
     </div>
   </div>
@@ -18,7 +20,7 @@
 <script>
 import Header from "./components/Shared/Header.vue";
 import Footer from "./components/Shared/Footer.vue";
-import Categories from "./components/Shared/Categories.vue";
+import Categories from "./components/categories/Categories.vue";
 
 export default {
   components: {
@@ -26,5 +28,19 @@ export default {
     appFooter: Footer,
     appCategories: Categories,
   },
+
+  data(){
+
+    return {
+
+    }
+  },
+
+  methods : {
+
+    
+
+    
+  }
 };
 </script>

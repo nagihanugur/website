@@ -1,33 +1,65 @@
 <template>
-<div class="container">
-      <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-              </li>
-              <li class="d-flex align-items-center me-3">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                <small>Earth</small>
-              </li>
-              <li class="d-flex align-items-center">
-               
-                <small>3d</small>
-              </li>
-            </ul>
-          </div>
-        </div>
+  <div class="container">
+   <ul>
+     <li :key="content.id" v-for="content in tempNews">
+        <div class="card" style="width: 18rem">
+    
+      <div class="card-body">
+        <h5 class="card-title">{{content.title}}</h5>
+        <p class="card-text">
+          {{content.description}}
+        </p>
+        <a  :href="`${content.url}`" class="btn btn-primary">Go detail</a>
       </div>
     </div>
-
-</div>
-    
+     </li>
+   </ul>
+  </div>
 </template>
+
 <script>
+import { mapGetters, mapActions, mapMutations } from "vuex";
+
 export default {
-    
-}
+  data() {
+    return {
+      tempNews:[],
+    };
+  },
+
+
+  created(){
+     // this.$store.dispatch("getNews");
+     this.getNews();
+     console.log("created")
+    },
+
+  methods: {
+    ...mapActions(["newsList"]),
+    getNews() {
+      this.$http.get("").then((response) => {
+        this.tempNews = response.data.articles;
+        console.log('news',this.tempNews);
+      });
+    },
+  },
+  computed: {
+    ...mapGetters({
+      newsFromGetter: "getNews",
+    }),
+    ...mapMutations([
+      "setNews"
+
+    ]),
+     news: {
+           get(){
+             return this.newsFromGetter
+           },
+           set(val){
+             //newName
+             this.news = val;
+           } 
+        },
+  },
+};
 </script>
