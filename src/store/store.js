@@ -6,8 +6,9 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
 
     state : {
-        categories : ["Business","Entertainment","General","Health","Science","Sports","Technology"],
+        categories : ["business","entertainment","general","health","science","sports","technology"],
         news : [],
+       
 
     },
 
@@ -19,7 +20,8 @@ export const store = new Vuex.Store({
         getNews(state){
 
             return state.news;
-        }
+        },
+       
 
     },
 
@@ -29,7 +31,8 @@ export const store = new Vuex.Store({
 
             
             state.news.push(payload);
-        }
+        },
+       
 
 
     },
@@ -46,7 +49,8 @@ export const store = new Vuex.Store({
     
             })
 
-        }
+        },
+       
 
 
     }
