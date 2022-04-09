@@ -98,7 +98,7 @@ export default {
   margin: 10px;
 }
 .card-text {
-  height: 90px;
+  height: 95px;
   overflow: hidden;
 }
 .card-title{

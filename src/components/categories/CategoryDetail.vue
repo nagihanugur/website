@@ -9,7 +9,7 @@
         <p class="card-text" >
           {{content.description}}
         </p>
-        <a  :href="`${content.url}`" class="btn btn-primary">Go detail</a>
+        <a  :href="`${content.url}`" class="btn buton">Go detail</a>
       </div>
     </div>
     
@@ -31,12 +31,15 @@ export default {
   created(){
      // this.$store.dispatch("getNews");
      //this.getNews(this.category);
+
    
     },
      mounted() {
 
    // this.getNews(this.category);
-   this.$nextTick(function () {
+
+   
+      this.$nextTick(function () {
     
       this.$http.get(`category=${this.category}`).then((response)=>{
         console.log(response);
@@ -44,6 +47,7 @@ export default {
         
       });
    })
+  
     },
   watch : {
 
@@ -68,12 +72,33 @@ export default {
 }
 </script>
 <style scoped>
-.card{
-    float: left;
-    display: inline-block;
-    height: 500px;
-    width: 400px;
-    margin: 10px;
 
+.card {
+  float: left;
+  display: inline-block;
+  height: 450px;
+  width: 350px;
+  margin: 10px;
+}
+.card-text {
+  height: 90px;
+  overflow: hidden;
+}
+.card-title{
+  font-size: 15px;
+  
+}
+
+
+.buton{
+
+  background-color:rgb(121, 109, 109); 
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: bisque;
+
+}
+.buton:hover{
+  background-color:rgb(236, 236, 226);
+  color: rgb(121, 109, 109); 
 }
 </style>

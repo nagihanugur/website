@@ -12,6 +12,7 @@ Vue.use(VueResource);
 
 //Vue.http.options.root ="https://newsapi.org/v2/top-headlines/sources?apiKey=API_KEY";
 Vue.http.options.root = "https://newsapi.org/v2/top-headlines?country=tr&apiKey=769b3bca59af48e8b55b85e68188d6a3&";
+//Vue.http.options.root = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=769b3bca59af48e8b55b85e68188d6a3"
 
 const router = new VueRouter({
   routes : routes,
